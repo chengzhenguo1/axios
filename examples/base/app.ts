@@ -100,7 +100,7 @@ axios({
 //   data: searchParams
 // })
 
-/* axios({
+axios({
   method: 'post',
   url: '/base/post',
   data: {
@@ -121,4 +121,4 @@ axios({
   }
 }).then((res) => {
   console.log(res)
-}) */
+}) 

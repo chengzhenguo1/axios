@@ -1,12 +1,12 @@
-import { AxiosRequestConfig } from './types/index'
+import { AxiosRequestConfig, AxiosPromise } from './types/index'
 import { xhr } from './core/xhr'
 import { formatUrl } from './helper/url'
 import { formatData } from './helper/data'
 import { formatHeader } from './helper/header'
 
-export default function axios(config: AxiosRequestConfig): void {
+export default function axios(config: AxiosRequestConfig): AxiosPromise {
   beforeConfig(config)
-  xhr(config)
+  return xhr(config)
 }
 
 function beforeConfig(config: AxiosRequestConfig): void {
