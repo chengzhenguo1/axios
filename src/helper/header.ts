@@ -24,3 +24,23 @@ export function formatHeader(data: any, headers: any): any {
   }
   return headers
 }
+
+/* 对返回的headers转换成对象 */
+export function parseHeaders(headers: string): any {
+  const res = Object.create(null)
+  if (!headers) {
+    return res
+  }
+  headers.split('\r\n').forEach(line => {
+    let [key, val] = line.split(':')
+    key = key.trim().toLowerCase()
+    if (!key) {
+      return
+    }
+    if (val) {
+      val = val.trim()
+    }
+    res[key] = val
+  })
+  return res
+}
